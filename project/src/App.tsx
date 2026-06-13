@@ -78,14 +78,22 @@ export default function App() {
   const [rankings, setRankings] = useState<{ player_name: string; score: number }[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [quizTransition, setQuizTransition] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const finishQuiz = useCallback(async (finalAnswers: (number | null)[]) => {
-    const computed = finalAnswers.reduce((acc, ans, i) => {
-      if (ans === null) return acc;
-      return acc + (ans === questions[i].correctIndex ? 1 : 0);
-    }, 0);
-    setScore(computed);
+useEffect(() => {
+  questions.forEach((q) => {
+    if (q.image) {
+      const img = new Image();
+      img.src = q.image;
+    }
+  });
+}, []);
+
+const finishQuiz = useCallback(async (finalAnswers: (number | null)[]) => {
+  const computed = finalAnswers.reduce((acc, ans, i) => {
+    if (ans === null) return acc;
+    return acc + (ans === questions[i].correctIndex ? 1 : 0);
+  }, 0);
 
     try {
       await supabase.from('trivia_scores').insert({
