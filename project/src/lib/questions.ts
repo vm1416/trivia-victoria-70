@@ -119,7 +119,7 @@ export const questions: Question[] = [
     question: '¿Cómo se llama su nuera?',
     options: ['Karina', 'Camila', 'Daniela', 'Andrea'],
     correctIndex: 0,
-    image: '/victoria-familia.gif',
+    image: '/victoria-familia.mp4',
     explanation: 'La familia ha sido siempre el centro de su vida.',
   },
 
@@ -133,7 +133,7 @@ export const questions: Question[] = [
       'Consultora estrella',
     ],
     correctIndex: 1,
-    image: '/victoria-jafra.gif',
+    image: '/victoria-jafra.mp4',
     explanation: 'Un logro extraordinario para una mujer extraordinaria.',
   },
 
@@ -161,7 +161,7 @@ export const questions: Question[] = [
       '2 hermanas y 3 hermanos',
     ],
     correctIndex: 1,
-    image: '/victoria-hermanos.gif',
+    image: '/victoria-hermanos.mp4',
     explanation: 'Una familia numerosa llena de recuerdos.',
   },
 
@@ -170,7 +170,7 @@ export const questions: Question[] = [
     question: '¿Con qué medio periodístico trabajó Victoria en Valledupar?',
     options: ['El Tiempo', 'El Pilón', 'El Espectador', 'Vanguardia'],
     correctIndex: 2,
-    image: '/victoria-espectador.gif',
+    image: '/victoria-espectador.mp4',
     explanation: '¡Pregunta trampa! Muchos piensan en El Pilón, pero la respuesta correcta es El Espectador.',
   },
 
@@ -188,7 +188,7 @@ export const questions: Question[] = [
     question: '¿A qué edad Victoria manejó un tractor?',
     options: ['10 años', '12 años', '14 años', '16 años'],
     correctIndex: 2,
-    image: '/victoria-tractor.gif',
+    image: '/victoria-tractor.mp4',
     explanation: 'Valiente e independiente desde muy joven.',
   },
 
@@ -202,7 +202,7 @@ export const questions: Question[] = [
       'Banco Ganadero',
     ],
     correctIndex: 2,
-    image: '/victoria-primer-trabajo.gif',
+    image: '/victoria-primer-trabajo.mp4',
     explanation: 'Ahí comenzó una trayectoria llena de logros.',
   },
 
@@ -211,7 +211,7 @@ export const questions: Question[] = [
     question: '¿Cuál es la fruta favorita de Victoria?',
     options: ['Mango', 'Guanábana', 'Papaya', 'Piña'],
     correctIndex: 1,
-    image: '/victoria-actual.gif',
+    image: '/victoria-frutas.mp4',
     explanation: 'Terminamos con uno de sus gustos más dulces.',
   },
 ];
