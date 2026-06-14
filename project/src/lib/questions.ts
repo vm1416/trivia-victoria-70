@@ -18,7 +18,7 @@ export const questions: Question[] = [
       'Aracataca, Magdalena, 17 jun 1954',
     ],
     correctIndex: 1,
-    image: '/victoria-padres.gif',
+    image: '/victoria-padres.mp4',
     explanation: 'Todo gran viaje comienza con un primer capítulo.',
   },
 
@@ -87,7 +87,7 @@ export const questions: Question[] = [
       'Premio de liderazgo',
     ],
     correctIndex: 1,
-    image: '/victoria-rmp.gif',
+    image: '/victoria-rmp.mp4',
     explanation: 'El esfuerzo siempre encuentra la forma de ser reconocido.',
   },
 
