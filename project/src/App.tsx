@@ -156,6 +156,21 @@ const finishQuiz = useCallback(async (finalAnswers: (number | null)[]) => {
   }, [answers, currentQuestion, advanceQuestion]);
 
   useEffect(() => {
+  if (screen !== 'gallery') return;
+
+  setLightboxIndex(0);
+
+  const interval = setInterval(() => {
+    setLightboxIndex((prev) => {
+      if (prev === null) return 0;
+      return (prev + 1) % GALLERY_IMAGES.length;
+    });
+  }, 7000);
+
+  return () => clearInterval(interval);
+}, [screen]);
+
+  useEffect(() => {
     if (screen !== 'quiz' || showCorrect) return;
 
     timerRef.current = setInterval(() => {
@@ -565,117 +580,34 @@ const finishQuiz = useCallback(async (finalAnswers: (number | null)[]) => {
 
   // ── GALLERY ──
   if (screen === 'gallery') {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-6 pt-10">
-        <div className="max-w-lg mx-auto">
-          <h2 className="text-3xl font-serif font-bold text-amber-900 text-center mb-2 flex items-center justify-center gap-2.5">
-            <ImageIcon className="w-7 h-7 text-amber-500" />
-            Galería
-          </h2>
-          <p className="text-amber-700/50 text-center mb-6">
-            Momentos especiales de Victoria
-          </p>
+  const current =
+    GALLERY_IMAGES[lightboxIndex ?? 0];
 
-          <div className="grid grid-cols-2 gap-3">
-            {GALLERY_IMAGES.map((img, i) => (
-              <button
-                key={i}
-                onClick={() => setLightboxIndex(i)}
-                className={`rounded-2xl overflow-hidden shadow-md shadow-amber-200/25 border border-amber-200/40 hover:shadow-xl hover:scale-[1.02] transition-all ${
-                  i === 0 ? 'col-span-2' : ''
-                }`}
-              >
-                <div className="relative group">
-                  <img
-                    src={img.url}
-                    alt={img.caption}
-                    className={`w-full object-cover group-hover:brightness-95 transition-all ${
-                      i === 0 ? 'h-56' : 'h-44'
-                    }`}
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <p className="absolute bottom-2.5 left-3 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {img.caption}
-                  </p>
-                </div>
-              </button>
-            ))}
-          </div>
+  return (
+    <div className="fixed inset-0 bg-black flex flex-col items-center justify-center overflow-hidden">
+      <img
+        src={current.url}
+        alt={current.caption}
+        className="w-full h-full object-contain"
+      />
 
-          <div className="flex flex-col gap-3 mt-6">
-            <button
-              onClick={loadRankings}
-              className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-600 to-amber-700 text-white font-bold text-lg flex items-center justify-center gap-2.5 hover:from-amber-700 hover:to-amber-800 active:scale-[0.98] transition-all shadow-lg shadow-amber-400/30"
-            >
-              <Trophy className="w-5 h-5" />
-              Ver Ranking
-            </button>
-            <button
-              onClick={resetGame}
-              className="w-full py-3 rounded-2xl text-amber-700/70 font-semibold hover:text-amber-900 transition-colors flex items-center justify-center gap-2"
-            >
-              <RotateCcw className="w-4 h-4" />
-              Jugar de nuevo
-            </button>
-          </div>
-        </div>
-
-        {/* Lightbox overlay */}
-        {lightboxIndex !== null && (
-          <div
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 animate-fade-in"
-            onClick={() => setLightboxIndex(null)}
-          >
-            <button
-              className="absolute top-5 right-5 text-white/70 hover:text-white p-2 transition-colors"
-              onClick={() => setLightboxIndex(null)}
-            >
-              <X className="w-7 h-7" />
-            </button>
-
-            {lightboxIndex > 0 && (
-              <button
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2 transition-colors"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setLightboxIndex(lightboxIndex - 1);
-                }}
-              >
-                <ChevronLeft className="w-8 h-8" />
-              </button>
-            )}
-
-            {lightboxIndex < GALLERY_IMAGES.length - 1 && (
-              <button
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2 transition-colors"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setLightboxIndex(lightboxIndex + 1);
-                }}
-              >
-                <ChevronRight className="w-8 h-8" />
-              </button>
-            )}
-
-            <div className="max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
-              <img
-                src={GALLERY_IMAGES[lightboxIndex].url}
-                alt={GALLERY_IMAGES[lightboxIndex].caption}
-                className="w-full rounded-2xl shadow-2xl"
-              />
-              <p className="text-white text-center mt-4 font-medium text-lg">
-                {GALLERY_IMAGES[lightboxIndex].caption}
-              </p>
-              <p className="text-white/50 text-center mt-1 text-sm">
-                {lightboxIndex + 1} de {GALLERY_IMAGES.length}
-              </p>
-            </div>
-          </div>
-        )}
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+        <p className="text-white text-center text-2xl md:text-3xl font-serif max-w-4xl mx-auto">
+          {current.caption}
+        </p>
       </div>
-    );
-  }
+
+      <div className="absolute top-6 right-6">
+        <button
+          onClick={() => setScreen('ranking')}
+          className="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-xl backdrop-blur-sm"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+  );
+}
 
   return null;
 }
