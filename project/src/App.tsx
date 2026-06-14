@@ -306,14 +306,25 @@ const finishQuiz = useCallback(async (finalAnswers: (number | null)[]) => {
           <div className="max-w-lg w-full">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg shadow-amber-200/30 border border-amber-200/50 mb-5">
               {q.image && (
-                <div className="mb-4 rounded-xl overflow-hidden border border-amber-200/40">
-                  <img
-                    src={q.image}
-                    alt=""
-                    className="w-full max-h-[500px] object-contain bg-white"
-                  />
-                </div>
-              )}
+  <div className="mb-4 rounded-xl overflow-hidden border border-amber-200/40">
+    {q.image.endsWith('.mp4') ? (
+      <video
+        src={q.image}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="w-full max-h-[500px] object-contain bg-white"
+      />
+    ) : (
+      <img
+        src={q.image}
+        alt=""
+        className="w-full max-h-[500px] object-contain bg-white"
+      />
+    )}
+  </div>
+)}
               <p className="text-amber-900 text-xl font-serif font-semibold text-center leading-relaxed">
                 {q.question}
               </p>
