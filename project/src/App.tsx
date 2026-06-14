@@ -24,28 +24,56 @@ const TIMER_SECONDS = 15;
 
 const GALLERY_IMAGES = [
   {
-    url: 'https://images.pexels.com/photos/1314595/pexels-photo-1314595.jpeg?auto=compress&cs=tinysrgb&w=600',
-    caption: 'Celebrando la vida',
+    url: '/gallery/victoria.webp',
+    caption: '70 años de elegancia, fortaleza y amor.',
   },
   {
-    url: 'https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=600',
-    caption: 'Momentos inolvidables',
+    url: '/gallery/victoria-con-padres.jpeg',
+    caption: 'Todo gran camino comienza con amor.',
   },
   {
-    url: 'https://images.pexels.com/photos/1589261/pexels-photo-1589261.jpeg?auto=compress&cs=tinysrgb&w=600',
-    caption: 'Rodeada de amor',
+    url: '/gallery/victoria-eloisa.jpeg',
+    caption: '70 años de vida y amistades que el tiempo nunca logró separar.',
   },
   {
-    url: 'https://images.pexels.com/photos/1096788/pexels-photo-1096788.jpeg?auto=compress&cs=tinysrgb&w=600',
-    caption: 'Siempre elegante',
+    url: '/gallery/victoria-hija.jpeg',
+    caption: 'Ser madre ha sido una de sus mayores bendiciones.',
   },
   {
-    url: 'https://images.pexels.com/photos/1674912/pexels-photo-1674912.jpeg?auto=compress&cs=tinysrgb&w=600',
-    caption: 'Junto a los suyos',
+    url: '/gallery/luciana-nieta.jpeg',
+    caption: 'Y la vida le regaló la alegría de ser abuela.',
   },
   {
-    url: 'https://images.pexels.com/photos/331107/pexels-photo-331107.jpeg?auto=compress&cs=tinysrgb&w=600',
-    caption: 'Feliz cumpleaños',
+    url: '/gallery/nuera-nieto-victoria.jpeg',
+    caption: 'El amor de la familia es el tesoro más grande.',
+  },
+  {
+    url: '/gallery/victoria-camilo-sobrino.jpeg',
+    caption: 'Siempre presente en los momentos que más importan.',
+  },
+  {
+    url: '/gallery/victoria-luisa-sobrina.jpeg',
+    caption: 'Compartiendo amor, consejos y recuerdos inolvidables.',
+  },
+  {
+    url: '/gallery/victoria-sobrinas.jpeg',
+    caption: 'Su cariño ha alcanzado a cada generación de la familia.',
+  },
+  {
+    url: '/gallery/victoria-osmairo-hermana.jpeg',
+    caption: 'Los hermanos son compañeros para toda la vida.',
+  },
+  {
+    url: '/gallery/mariela-blanca-hermanas.jpeg',
+    caption: 'Las hermanas guardan los recuerdos más valiosos del corazón.',
+  },
+  {
+    url: '/gallery/amigas-de-victoria.jpeg',
+    caption: 'Amigas que han llenado su vida de alegría, apoyo y momentos inolvidables.',
+  },
+  {
+    url: '/gallery/victoria-amiga-yaneth-nyc.jpeg',
+    caption: 'Nunca dejó de descubrir nuevos horizontes y vivir nuevas aventuras.',
   },
 ];
 
